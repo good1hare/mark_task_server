@@ -1,3 +1,6 @@
 module.exports = {
-  url : 'mongodb://good1admin:24354657@ds113455.mlab.com:13455/mark_task'
+  host : 'a223933.mysql.mchost.ru',
+  user : 'a223933_1',
+  password : '3ADf36AaW89M',
+  pass : 'fe563h65t3eds'
 };
