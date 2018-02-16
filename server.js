@@ -2,7 +2,7 @@ const express        = require('express');
 const bodyParser     = require('body-parser');
 const db             = require('./config/db');
 const app            = express();
-const port = 8000;
+const port = 3333;
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : db.host,
@@ -18,14 +18,25 @@ app.listen(port, () => {
 });
 
 app.post('/create_tasks', (req, res) => {
-	connection.connect();
+	if (connection == null) {
+    connection.connect();
+  }
 	console.log(req.body)
   const task = { text: req.body.body, title: req.body.title}
 
-  connection.query('', function(err, rows, fields) {
-	  if (err) throw err;
-	  console.log('The solution is: ', rows[0].solution)
-  connection.end();
-	});
+  // connection.query('', function(err, rows, fields) {
+	//   if (err) throw err;
+	//   console.log('The solution is: ', rows[0].solution)
+	// });
 	res.send("Hello");
 	});
+
+  app.post('/auth', (req, res) => {
+  	if (connection == null) {
+      connection.connect();
+    }
+  	console.log(req.body)
+    const task = { text: req.body.body, title: req.body.title}
+
+  	res.send("Success");
+  	});
