@@ -3,12 +3,12 @@ const bodyParser     = require('body-parser');
 const db             = require('./config/db');
 const app            = express();
 const port = 3333;
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : db.host,
-  user     : db.user,
-  password : db.password
-});
+var mysql            = require('mysql');
+// var connection = mysql.createConnection({
+//   host     : db.host,
+//   user     : db.user,
+//   password : db.password
+// });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -24,19 +24,16 @@ app.post('/create_tasks', (req, res) => {
 	console.log(req.body)
   const task = { text: req.body.body, title: req.body.title}
 
-  // connection.query('', function(err, rows, fields) {
-	//   if (err) throw err;
-	//   console.log('The solution is: ', rows[0].solution)
-	// });
 	res.send("Hello");
 	});
 
-  app.post('/auth', (req, res) => {
-  	if (connection == null) {
-      connection.connect();
-    }
-  	console.log(req.body)
-    const task = { text: req.body.body, title: req.body.title}
+app.post('/auth', (req, res) => {
+	if (connection == null) {
+    connection.connect();
+  }
+	console.log(req.body)
+  const idToken = { text: req.body.token}
 
-  	res.send("Success");
-  	});
+  });
+	res.send("Success");
+	});
