@@ -33,7 +33,5 @@ app.post('/auth', (req, res) => {
   }
 	console.log(req.body)
   const idToken = { text: req.body.token}
-
-  });
 	res.send("Success");
 	});
