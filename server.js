@@ -32,6 +32,24 @@ app.post('/auth', (req, res) => {
   //   this.connection.connect();
   // }
 	console.log(req.body)
-  //const idToken = { text: req.body.token}
+  const user = { mail: req.body.mail, password: req.body.password}
 	res.send("Success");
+	});
+
+app.post('/reg', (req, res) => {
+	// if (this.connection == null) {
+	//   this.connection.connect();
+	// }
+	console.log(req.body)
+	const user = { mail: req.body.mail, password: req.body.password}
+
+	var user = {
+	  user_id: "1",
+	  user_name: "Булат",
+		email: "good1hare@gmail.com"
+	};
+
+	var userJsonStr = JSON.stringify(user);
+
+	res.send(user);
 	});
