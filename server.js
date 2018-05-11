@@ -46,7 +46,8 @@ app.post('/reg', (req, res) => {
 	var userInfo = {
 	  user_id: "1",
 	  user_name: "Булат",
-		email: "good1hare@gmail.com"
+		email: "good1hare@gmail.com",
+		error: "0"
 	};
 
 	var userInfoJsonStr = JSON.stringify(user);
