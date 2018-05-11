@@ -43,13 +43,13 @@ app.post('/reg', (req, res) => {
 	console.log(req.body)
 	const user = { mail: req.body.mail, password: req.body.password}
 
-	var user = {
+	var userInfo = {
 	  user_id: "1",
 	  user_name: "Булат",
 		email: "good1hare@gmail.com"
 	};
 
-	var userJsonStr = JSON.stringify(user);
+	var userInfoJsonStr = JSON.stringify(user);
 
-	res.send(user);
+	res.send(userInfo);
 	});
