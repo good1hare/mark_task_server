@@ -3,12 +3,14 @@ const bodyParser     = require('body-parser');
 const db             = require('./config/db');
 const app            = express();
 const port = 3333;
-//var mysql            = require('mysql');
-// var connection = mysql.createConnection({
-//   host     : db.host,
-//   user     : db.user,
-//   password : db.password
-// });
+var mysql            = require('mysql');
+var connection = mysql.createConnection({
+  host     : db.host,
+  user     : db.user,
+  password : db.password
+});
+
+connection.connect();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -37,11 +39,16 @@ app.post('/auth', (req, res) => {
 	});
 
 app.post('/reg', (req, res) => {
-	// if (this.connection == null) {
-	//   this.connection.connect();
-	// }
+	if (this.connection == null) {
+	  this.connection.connect();
+	}
 	console.log(req.body)
 	const user = { mail: req.body.mail, password: req.body.password}
+
+	// connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+	//   if (err) throw err;
+	//   console.log('The solution is: ', rows[0].solution);
+	// });
 
 	var userInfo = {
 	  user_id: "1",
