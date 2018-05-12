@@ -31,7 +31,7 @@ app.post('/auth', (req, res) => {
 	console.log(req.body)
   const user = { login: req.body.login, password: req.body.password}
 
-	connection.query("SELECT * FROM mark_task.users WHERE email " + user.login + ";", function(err, rows, fields) {
+	connection.query("SELECT * FROM mark_task.users WHERE user_email " + user.login + ";", function(err, rows, fields) {
 		console.log(rows, fields)
 	});
 
