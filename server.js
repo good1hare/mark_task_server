@@ -20,11 +20,11 @@ app.listen(port, () => {
   console.log('Start server ' + port + " " + now);
 });
 
-app.post('/create_tasks', (req, res) => {
+app.post('/create_task', (req, res) => {
 	console.log(req.body)
-  const task = { text: req.body.body, title: req.body.title}
+  const task = { task_name: req.body.name, task_desc: req.body.desc, task_exec: req.body.task_exec}
 
-	res.send("Hello");
+	res.send("0");
 	});
 
 app.post('/auth', (req, res) => {
