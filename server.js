@@ -35,14 +35,15 @@ app.post('/auth', (req, res) => {
 		console.log(result)
 	});
 
-	var userInfo = {
-	  user_id: "1",
-	  user_name: "Булат",
-		email: "good1hare@gmail.com",
-		error: "0"
-	};
-	var userInfoJsonStr = JSON.stringify(user);
-	res.send(userInfo);
+	// var userInfo = {
+	//   user_id: "1",
+	//   user_name: "Булат",
+	// 	email: "good1hare@gmail.com",
+	// 	error: "0"
+	// };
+	var userInfoJsonStr = JSON.stringify(result);
+	console.log(userInfoJsonStr)
+	res.send(userInfoJsonStr);
 	});
 
 app.post('/reg', (req, res) => {
