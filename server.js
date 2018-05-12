@@ -32,18 +32,10 @@ app.post('/auth', (req, res) => {
   const user = { login: req.body.login, password: req.body.password}
 
 	connection.query("SELECT * FROM mark_task.users WHERE user_email='" + user.login + "';", function(err, result, fields) {
-		console.log(result)
+		console.log(JSON.stringify(result))
 	});
 
-	// var userInfo = {
-	//   user_id: "1",
-	//   user_name: "Булат",
-	// 	email: "good1hare@gmail.com",
-	// 	error: "0"
-	// };
-	var userInfoJsonStr = JSON.stringify(result);
-	console.log(userInfoJsonStr)
-	res.send(userInfoJsonStr);
+	res.send(JSON.stringify(result));
 	});
 
 app.post('/reg', (req, res) => {
