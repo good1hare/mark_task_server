@@ -39,9 +39,9 @@ app.post('/auth', (req, res) => {
 	});
 
 app.post('/reg', (req, res) => {
-	if (this.connection == null) {
-	  this.connection.connect();
-	}
+	// if (connection == null) {
+	//   connection.connect();
+	// }
 	console.log(req.body)
 	const user = { email: req.body.mail, password: req.body.password, name: req.body.name}
 
