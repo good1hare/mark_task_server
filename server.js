@@ -32,7 +32,8 @@ app.post('/auth', (req, res) => {
   const user = { login: req.body.login, password: req.body.password}
 
 	connection.query("SELECT * FROM mark_task.users;", function(err, rows, fields) {
-		});
+		console.log(rows)
+	});
 
 	var userInfo = {
 	  user_id: "1",
