@@ -7,12 +7,11 @@ var mysql            = require('mysql');
 var connection = mysql.createConnection({
   host     : db.host,
   user     : db.user,
-  password : db.password
+  password : db.password,
+	datebase : db.datebase
 });
 
 connection.connect();
-
-mysql.query('use mark_task');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
