@@ -42,6 +42,8 @@ app.post('/auth', (req, res) => {
 			user_password: "0"
 		};
 
+
+
 		userInfo = JSON.parse(userInfoJsonStr);
 
 		var userForSend = {
@@ -51,7 +53,7 @@ app.post('/auth', (req, res) => {
 			error: "0"
 		};
 
-		console.log(userForSend);
+		console.log(userInfo);
 		res.send(JSON.stringify(userForSend));
 	});
 	});
