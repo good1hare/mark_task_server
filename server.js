@@ -23,7 +23,7 @@ app.listen(port, () => {
 app.post('/create_task', (req, res) => {
 	console.log(req.body)
   const task = { task_name: req.body.task_name, task_desc: req.body.task_desc, task_exec: req.body.task_exec}
-	connection.query("insert into tasks (task_name, task_desc, task_exec, task_percent) values ('" + task.task_name + "','" + task.task_desc + "','" + task.task_exec "','" + "0" + "');", function(err, rows, fields) {
+	connection.query("insert into tasks (task_name, task_desc, task_exec, task_percent) values ('" + task.task_name + "','" + task.task_desc + "','" + task.task_exec + "', '0');", function(err, rows, fields) {
 		});
 	res.send("0");
 	});
