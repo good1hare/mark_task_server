@@ -30,12 +30,12 @@ app.post('/create_tasks', (req, res) => {
 app.post('/auth', (req, res) => {
 	console.log(req.body)
   const user = { login: req.body.login, password: req.body.password}
+	var userInfoJsonStr;
 
 	connection.query("SELECT * FROM mark_task.users WHERE user_email='" + user.login + "';", function(err, result, fields) {
 		console.log(JSON.stringify(result))
+		userInfoJsonStr = JSON.stringify(result);
 	});
-
-	var userInfoJsonStr = JSON.stringify(result);
 
 	res.send(userInfoJsonStr);
 	});
