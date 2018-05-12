@@ -28,23 +28,11 @@ app.post('/create_tasks', (req, res) => {
 	});
 
 app.post('/auth', (req, res) => {
-	//console.log(req.body)
+	console.log(req.body)
   const user = { login: req.body.login, password: req.body.password}
 
 	connection.query("SELECT * FROM mark_task.users WHERE user_email='" + user.login + "';", function(err, result, fields) {
-		console.log(JSON.stringify(result))
-		var userInfoJsonStr = JSON.stringify(result);
-
-		var userInfo = {
-			user_id: "0",
-			user_name: "0",
-			user_email: "0",
-			user_password: "0"
-		};
-
-
-
-		userInfo = JSON.parse(userInfoJsonStr);
+		//console.log(JSON.stringify(result))
 
 		var userForSend = {
 			user_id: result[0].user_id,
