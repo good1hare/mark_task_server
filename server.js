@@ -46,7 +46,7 @@ app.post('/reg', (req, res) => {
 	console.log(req.body)
 	const user = { email: req.body.mail, password: req.body.password, name: req.body.name}
 
-	connection.query('insert into users (user_name, user_email, user_password) values ( ' + user.name + ',' + user.email + ',' + user.password + ');', function(err, rows, fields) {
+	connection.query('insert into users (user_name, user_email, user_password) values (' + user.name + ',' + user.email + ',' + user.password + ');', function(err, rows, fields) {
 	  if (err) throw err;
 	  console.log('The solution is: ', rows[0].solution);
 	});
