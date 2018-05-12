@@ -62,3 +62,14 @@ app.post('/reg', (req, res) => {
 	};
 	res.send(userInfo);
 	});
+
+	app.post('/get_tasks', (req, res) => {
+		console.log(req.body)
+	  const task_exec = { task_exec: req.body.task_exec}
+
+		connection.query("SELECT * FROM mark_task.tasks;", function(err, result, fields) {
+			console.log(JSON.stringify(result))
+	
+			res.send(JSON.stringify(result));
+		});
+		});
