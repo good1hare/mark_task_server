@@ -12,6 +12,8 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
+mysql.query('use mark_task');
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(port, () => {
