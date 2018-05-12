@@ -21,9 +21,6 @@ app.listen(port, () => {
 });
 
 app.post('/create_tasks', (req, res) => {
-	// if (this.connection == null) {
-  //   this.connection.connect();
-  // }
 	console.log(req.body)
   const task = { text: req.body.body, title: req.body.title}
 
@@ -31,18 +28,23 @@ app.post('/create_tasks', (req, res) => {
 	});
 
 app.post('/auth', (req, res) => {
-	// if (this.connection == null) {
-  //   this.connection.connect();
-  // }
 	console.log(req.body)
-  const user = { mail: req.body.mail, password: req.body.password}
-	res.send("Success");
+  const user = { login: req.body.login, password: req.body.password}
+
+	connection.query("SELECT * FROM mark_task.users;", function(err, rows, fields) {
+		});
+
+	var userInfo = {
+	  user_id: "1",
+	  user_name: "Булат",
+		email: "good1hare@gmail.com",
+		error: "0"
+	};
+	var userInfoJsonStr = JSON.stringify(user);
+	res.send(userInfo);
 	});
 
 app.post('/reg', (req, res) => {
-	// if (connection == null) {
-	//   connection.connect();
-	// }
 	console.log(req.body)
 	const user = { email: req.body.mail, password: req.body.password, name: req.body.name}
 
@@ -55,8 +57,6 @@ app.post('/reg', (req, res) => {
 		email: "good1hare@gmail.com",
 		error: "0"
 	};
-
 	var userInfoJsonStr = JSON.stringify(user);
-
 	res.send(userInfo);
 	});
