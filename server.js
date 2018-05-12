@@ -35,7 +35,9 @@ app.post('/auth', (req, res) => {
 		console.log(JSON.stringify(result))
 	});
 
-	res.send(JSON.stringify(result));
+	var userInfoJsonStr = JSON.stringify(result);
+
+	res.send(userInfoJsonStr);
 	});
 
 app.post('/reg', (req, res) => {
@@ -46,11 +48,10 @@ app.post('/reg', (req, res) => {
 	  });
 
 	var userInfo = {
-	  user_id: "1",
-	  user_name: "Булат",
-		email: "good1hare@gmail.com",
+	  user_id: "0",
+	  user_name: "0",
+		email: "0",
 		error: "0"
 	};
-	var userInfoJsonStr = JSON.stringify(user);
 	res.send(userInfo);
 	});
