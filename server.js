@@ -28,34 +28,32 @@ app.post('/create_tasks', (req, res) => {
 	});
 
 app.post('/auth', (req, res) => {
-	console.log(req.body)
+	//console.log(req.body)
   const user = { login: req.body.login, password: req.body.password}
-	var userInfoJsonStr;
 
 	connection.query("SELECT * FROM mark_task.users WHERE user_email='" + user.login + "';", function(err, result, fields) {
 		console.log(JSON.stringify(result))
-		//userInfoJsonStr = JSON.stringify(result);
+		var userInfoJsonStr = JSON.stringify(result);
+
+		var userInfo = {
+			user_id: "0",
+			user_name: "0",
+			user_email: "0",
+			user_password: "0"
+		};
+
+		userInfo = JSON.parse(userInfoJsonStr);
+
+		var userForSend = {
+			user_id: userInfo.user_id,
+			user_name: userInfo.user_name,
+			email: userInfo.user_email,
+			error: "0"
+		};
+
+		console.log(userForSend);
+		res.send(JSON.stringify(userForSend));
 	});
-
-	var userInfo = {
-		user_id: "0",
-		user_name: "0",
-		user_email: "0",
-		user_password: "0"
-	};
-
-	//userInfo = JSON.parse(userInfoJsonStr);
-
-	var userForSend = {
-		user_id: userInfo.user_id,
-		user_name: userInfo.user_name,
-		email: userInfo.user_email,
-		error: "0"
-	};
-
-
-	console.log(userForSend);
-	res.send(JSON.stringify(userForSend));
 	});
 
 app.post('/reg', (req, res) => {
