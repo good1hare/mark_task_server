@@ -36,7 +36,16 @@ app.post('/auth', (req, res) => {
 		console.log(JSON.stringify(result))
 		userInfoJsonStr = JSON.stringify(result);
 	});
+	var userInfo = {
+		user_id: "0",
+		user_name: "0",
+		email: "0",
+		error: "0"
+	};
 
+	userInfo = JSON.parse(userInfoJsonStr);
+	userInfo.error = "0";
+	console.log(userInfo);
 	res.send(userInfoJsonStr);
 	});
 
