@@ -34,7 +34,7 @@ app.post('/auth', (req, res) => {
 
 	connection.query("SELECT * FROM mark_task.users WHERE user_email='" + user.login + "';", function(err, result, fields) {
 		console.log(JSON.stringify(result))
-		userInfoJsonStr = JSON.stringify(result);
+		//userInfoJsonStr = JSON.stringify(result);
 	});
 
 	var userInfo = {
@@ -44,7 +44,7 @@ app.post('/auth', (req, res) => {
 		user_password: "0"
 	};
 
-	userInfo = JSON.parse(userInfoJsonStr);
+	//userInfo = JSON.parse(userInfoJsonStr);
 
 	var userForSend = {
 		user_id: userInfo.user_id,
