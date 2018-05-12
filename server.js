@@ -43,12 +43,12 @@ app.post('/reg', (req, res) => {
 	  this.connection.connect();
 	}
 	console.log(req.body)
-	const user = { mail: req.body.mail, password: req.body.password}
+	const user = { email: req.body.mail, password: req.body.password, name: req.body.name}
 
-	// connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-	//   if (err) throw err;
-	//   console.log('The solution is: ', rows[0].solution);
-	// });
+	connection.query('insert into users (user_name, user_email, user_password) values ( ' + user.name + ',' + user.email + ',' + user.password + ');', function(err, rows, fields) {
+	  if (err) throw err;
+	  console.log('The solution is: ', rows[0].solution);
+	});
 
 	var userInfo = {
 	  user_id: "1",
