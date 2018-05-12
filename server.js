@@ -53,9 +53,9 @@ app.post('/auth', (req, res) => {
 		error: "0"
 	};
 
-	
+
 	console.log(userForSend);
-	res.send(userInfoJsonStr);
+	res.send(JSON.stringify(userForSend));
 	});
 
 app.post('/reg', (req, res) => {
