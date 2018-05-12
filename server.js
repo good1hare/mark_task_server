@@ -46,13 +46,10 @@ app.post('/auth', (req, res) => {
 
 		userInfo = JSON.parse(userInfoJsonStr);
 
-		var id = userInfo.user_id;
-		var name = userInfo.user_name;
-		var email = userInfo.user_email;
 		var userForSend = {
-			user_id: id,
-			user_name: name,
-			email: email,
+			user_id: results[0].user_id,
+			user_name: results[0].user_name,
+			email: results[0].user_email,
 			error: "0"
 		};
 
