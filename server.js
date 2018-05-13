@@ -3,7 +3,6 @@ const bodyParser     = require('body-parser');
 const db             = require('./config/db');
 const app            = express();
 const port = 3333;
-var iconv = require('iconv');
 var mysql            = require('mysql');
 var connection = mysql.createConnection({
   host     : db.host,
@@ -13,11 +12,6 @@ var connection = mysql.createConnection({
 });
 
 connection.connect();
-
-var encoder = new iconv.Iconv('latin1', 'utf-8');
-
-// will encode result and pipe it to your terminal
-query.pipe(encoder.pipe(process.stdout));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
